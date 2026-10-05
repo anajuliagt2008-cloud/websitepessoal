@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#485b96">
+    <title>Ana Júlia | Design Gráfico</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --blue: #485b96;
+        --paper: #f4f0d9;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        background: var(--paper);
+      }
+
+      .topbar {
+        height: 48px;
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .topbar-content {
+        position: relative;
+        display: flex;
+        width: min(100%, 566px);
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 36px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .navigation,
+      .social-links {
+        display: flex;
+        align-items: center;
+      }
+
+      .navigation {
+        gap: 28px;
+      }
+
+      .navigation a {
+        color: inherit;
+        font-size: 9px;
+        text-decoration: none;
+      }
+
+      .wordmark {
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 120px;
+        max-width: 32vw;
+        height: 32px;
+        transform: translateX(-50%);
+        color: #fff;
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+        font-size: 22px;
+        font-style: italic;
+        line-height: 32px;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .wordmark img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+
+      .social-links {
+        gap: 15px;
+      }
+
+      .social-icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        flex: 0 0 16px;
+        color: #fff;
+      }
+
+      main {
+        padding: 47px clamp(20px, 5vw, 48px) 90px;
+      }
+
+      h1 {
+        margin: 0 0 9px;
+        color: var(--blue);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.3;
+        text-align: center;
+      }
+
+      .gallery-title {
+        margin: 28px 0 9px;
+        color: var(--blue);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.3;
+        text-align: center;
+      }
+
+      .packaging-title {
+        margin-top: 45px;
+      }
+
+      .gallery {
+        display: flex;
+        width: min(63%, 356px);
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--blue);
+        position: relative;
+      }
+
+      .gallery + .gallery {
+        margin-top: 58px;
+      }
+
+      .gallery + .packaging-work {
+        margin-top: 76px;
+      }
+
+      .gallery-title + .gallery {
+        margin-top: 0;
+      }
+
+      .gallery::before,
+      .gallery::after,
+      .gallery .corner {
+        position: absolute;
+        z-index: 1;
+        width: 8px;
+        height: 8px;
+        background: var(--blue);
+        content: "";
+        transform: rotate(45deg);
+      }
+
+      .gallery::before {
+        top: -5px;
+        left: -5px;
+      }
+
+      .gallery::after {
+        top: -5px;
+        right: -5px;
+      }
+
+      .gallery .corner {
+        bottom: -5px;
+      }
+
+      .gallery .corner:nth-of-type(1) {
+        left: -5px;
+      }
+
+      .gallery .corner:nth-of-type(2) {
+        right: -5px;
+      }
+
+      .brand-work {
+        height: 149px;
+        gap: 8%;
+      }
+
+      .brand-work > .cacheou-crop {
+        width: 45%;
+        aspect-ratio: 1.76;
+      }
+
+      .brand-work > img.space {
+        width: 30%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+
+      .cacheou-crop {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cacheou-crop img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200%;
+        height: 200%;
+        max-width: none;
+        transform: translate(-50%, -50%);
+      }
+
+      .poster-work {
+        height: 151px;
+        gap: 9%;
+      }
+
+      .poster-work .space {
+        width: 25%;
+        aspect-ratio: 0.7;
+      }
+
+      .packaging-work {
+        height: 168px;
+        gap: 9%;
+      }
+
+      .packaging-work .space:first-of-type {
+        width: 50%;
+        aspect-ratio: 1.12;
+      }
+
+      .packaging-work .space:last-of-type {
+        width: 26%;
+        aspect-ratio: 0.58;
+      }
+
+      .space {
+        display: block;
+        flex: 0 0 auto;
+      }
+
+      .project-image {
+        object-fit: contain;
+      }
+
+      .footer-content {
+        width: min(100%, 566px);
+        margin: 0 auto;
+        padding: 17px 24px;
+        border-top: 1px solid rgba(72, 91, 150, 0.35);
+        font-size: 10px;
+        text-align: center;
+      }
+
+      .footer-content p {
+        margin: 0;
+      }
+
+      @media (max-width: 480px) {
+        .topbar-content {
+          padding: 0 20px;
+        }
+
+        .navigation {
+          gap: 16px;
+        }
+
+        .social-links {
+          gap: 10px;
+        }
+
+        .gallery {
+          width: 70%;
+        }
+
+        .brand-work,
+        .poster-work {
+          height: auto;
+          min-height: 132px;
+        }
+
+        .packaging-work {
+          height: auto;
+          min-height: 148px;
+        }
+
+        .gallery + .gallery {
+          margin-top: 48px;
+        }
+
+        .gallery-title {
+          margin-top: 18px;
+        }
+
+        .packaging-title {
+          margin-top: 34px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="home">
+      <header class="topbar">
+        <div class="topbar-content">
+          <nav class="navigation" aria-label="Navegação principal">
+            <a href="#home">Home</a>
+            <a href="about.html">About</a>
+          </nav>
+          <span class="wordmark" aria-label="Ana Júlia"><span>Ana Júlia</span><img src="midia/logo%20ana%20julia.svg" alt="" onload="this.previousElementSibling.hidden = true" onerror="this.hidden = true"></span>
+          <div class="social-links" aria-label="Redes sociais e contato">
+            <svg class="social-icon" viewBox="0 0 16 16" role="img" aria-label="Instagram" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="2.1" y="2.1" width="11.8" height="11.8" rx="3.2"></rect>
+              <circle cx="8" cy="8" r="2.8"></circle>
+              <circle cx="11.7" cy="4.4" r="0.7" fill="currentColor" stroke="none"></circle>
+            </svg>
+            <svg class="social-icon" viewBox="0 0 16 16" role="img" aria-label="E-mail" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1.5" y="3" width="13" height="10" rx="1"></rect>
+              <path d="m2.1 4 5.9 4.8L13.9 4"></path>
+            </svg>
+            <svg class="social-icon" viewBox="0 0 16 16" role="img" aria-label="WhatsApp" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13.4 7.7a5.4 5.4 0 0 1-7.9 4.8L2.3 13l.6-3.1a5.4 5.4 0 1 1 10.5-2.2Z"></path>
+              <path d="M5.5 5.2c-.3.2-.5.6-.5 1 0 1.8 2.5 4.5 4.5 4.7.5 0 1-.2 1.2-.6l.2-.7-1.4-.7-.7.6c-.7-.3-1.3-.9-1.7-1.6l.5-.7-.7-1.4-.7-.6-.7 0Z"></path>
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <main id="portfolio">
+        <h1>Design de Marca</h1>
+        <section class="gallery brand-work" aria-label="Espaços para projetos de marca">
+          <div class="space cacheou-crop">
+            <img class="project-image" src="midia/cacheou.png" alt="Identidade visual Cacheou">
+          </div>
+          <img class="space project-image" src="midia/bicho%20petstore.png" alt="Logo Bicho Pet Store">
+          <i class="corner"></i><i class="corner"></i>
+        </section>
+        <h2 class="gallery-title">Design de Capa</h2>
+        <section class="gallery poster-work" aria-label="Espaços para projetos de cartaz">
+          <img class="space project-image" src="midia/carmilla.png" alt="Capa Carmilla">
+          <img class="space project-image" src="midia/hannibal.png" alt="Capa Hannibal">
+          <img class="space project-image" src="midia/Rectangle%202.png" alt="Capa Rectangle 2">
+          <i class="corner"></i><i class="corner"></i>
+        </section>
+        <h2 class="gallery-title packaging-title">Design de Embalagem</h2>
+        <section class="gallery packaging-work" aria-label="Espaços para projetos de embalagem">
+          <img class="space project-image" src="midia/embalagem.png" alt="Projeto de embalagem">
+          <img class="space project-image" src="midia/creme.png" alt="Embalagem de creme Alchemia">
+          <i class="corner"></i><i class="corner"></i>
+        </section>
+      </main>
+
+      <footer class="footer-content">
+        <p>Ana Júlia · Design Gráfico</p>
+      </footer>
+    </div>
+  </body>
+</html>
