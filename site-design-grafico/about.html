@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#485b96">
+    <title>Sobre | Ana Júlia</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --blue: #485b96;
+        --paper: #f4f0d9;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        margin: 0;
+        background: var(--paper);
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .topbar {
+        height: 48px;
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .topbar-content {
+        position: relative;
+        display: flex;
+        width: min(100%, 566px);
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 36px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .navigation,
+      .social-links {
+        display: flex;
+        align-items: center;
+      }
+
+      .navigation {
+        gap: 28px;
+      }
+
+      .navigation a {
+        color: inherit;
+        font-size: 9px;
+        text-decoration: none;
+      }
+
+      .wordmark {
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 120px;
+        max-width: 32vw;
+        height: 32px;
+        transform: translateX(-50%);
+        color: #fff;
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+        font-size: 22px;
+        font-style: italic;
+        line-height: 32px;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .wordmark img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+
+      .social-links {
+        gap: 15px;
+      }
+
+      .social-icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        flex: 0 0 16px;
+        color: #fff;
+      }
+
+      main {
+        flex: 1;
+        padding: 0 20px;
+      }
+
+      .profile-intro {
+        display: grid;
+        width: min(100%, 468px);
+        margin: 26px auto 0;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 15px;
+      }
+
+      .portrait-placeholder {
+        display: block;
+        width: 100%;
+        height: 172px;
+        border: 1px solid rgba(72, 91, 150, 0.45);
+        background: rgba(72, 91, 150, 0.035);
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .portrait-divider {
+        position: relative;
+        height: 14px;
+        margin-top: 5px;
+      }
+
+      .portrait-divider::before {
+        position: absolute;
+        top: 7px;
+        right: 0;
+        left: 0;
+        border-top: 2px solid var(--blue);
+        content: "";
+      }
+
+      .portrait-divider::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 7px;
+        height: 7px;
+        background: var(--blue);
+        box-shadow: -6px 0 0 -2px var(--blue), 6px 0 0 -2px var(--blue);
+        content: "";
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .intro-card {
+        position: relative;
+        height: 172px;
+        padding: 9px 11px;
+        border: 2px solid var(--blue);
+        color: #181818;
+      }
+
+      .intro-card h1 {
+        margin: 0 0 18px;
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 1.1;
+      }
+
+      .intro-card p {
+        margin: 0 0 11px;
+        font-size: 12px;
+        line-height: 1.1;
+      }
+
+      .card-corner {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        background: var(--blue);
+        transform: rotate(45deg);
+      }
+
+      .card-corner.top-left {
+        top: -5px;
+        left: -5px;
+      }
+
+      .card-corner.top-right {
+        top: -5px;
+        right: -5px;
+      }
+
+      .card-corner.bottom-left {
+        bottom: -5px;
+        left: -5px;
+      }
+
+      .card-corner.bottom-right {
+        right: -5px;
+        bottom: -5px;
+      }
+
+      .biography {
+        position: relative;
+        width: min(100%, 468px);
+        min-height: 206px;
+        margin: 110px auto 198px;
+        padding: 10px 22px 24px;
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .biography h2 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 1.35;
+      }
+
+      .biography-rule {
+        width: 172px;
+        margin: 2px 0 17px;
+        border-top: 1px solid currentColor;
+      }
+
+      .biography p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      .moon {
+        position: absolute;
+        top: -17px;
+        right: -14px;
+        width: 32px;
+        height: 32px;
+        color: #111;
+      }
+
+      .moon::before,
+      .moon::after {
+        position: absolute;
+        border-radius: 50%;
+        content: "";
+      }
+
+      .moon::before {
+        inset: 0;
+        background: currentColor;
+      }
+
+      .moon::after {
+        top: -4px;
+        right: -4px;
+        width: 27px;
+        height: 27px;
+        background: var(--paper);
+      }
+
+      .moon span {
+        position: absolute;
+        z-index: 1;
+        top: 2px;
+        right: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 14px;
+      }
+
+      .site-footer {
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .footer-content {
+        display: grid;
+        width: min(100%, 566px);
+        min-height: 74px;
+        margin: 0 auto;
+        padding: 16px 25px;
+        align-items: center;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .contact-item {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 7px;
+        font-size: 10px;
+        white-space: nowrap;
+      }
+
+      .contact-icon {
+        width: 23px;
+        height: 23px;
+        flex: 0 0 23px;
+        color: #fff;
+      }
+
+      @media (max-width: 480px) {
+        .topbar-content {
+          padding: 0 20px;
+        }
+
+        .navigation {
+          gap: 16px;
+        }
+
+        .social-links {
+          gap: 10px;
+        }
+
+        .profile-intro {
+          width: min(100%, 386px);
+          grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr);
+          gap: 12px;
+        }
+
+        .portrait-placeholder,
+        .intro-card {
+          height: 158px;
+        }
+
+        .intro-card {
+          padding: 9px;
+        }
+
+        .intro-card h1 {
+          margin-bottom: 12px;
+          font-size: 20px;
+        }
+
+        .intro-card p {
+          margin-bottom: 8px;
+          font-size: 10px;
+        }
+
+        .biography {
+          min-height: 0;
+          margin-top: 82px;
+          margin-bottom: 90px;
+          padding: 12px 18px 22px;
+        }
+
+        .biography h2 {
+          font-size: 25px;
+        }
+
+        .biography p {
+          font-size: 11px;
+          line-height: 1.7;
+        }
+
+        .footer-content {
+          padding: 15px 12px;
+          gap: 8px;
+        }
+
+        .contact-item {
+          justify-content: center;
+          gap: 4px;
+          font-size: 8px;
+        }
+
+        .contact-icon {
+          width: 18px;
+          height: 18px;
+          flex-basis: 18px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .topbar-content {
+          padding: 0 12px;
+        }
+
+        .navigation {
+          gap: 10px;
+        }
+
+        .social-links {
+          gap: 7px;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          justify-items: start;
+          padding-left: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-content">
+        <nav class="navigation" aria-label="Navegação principal">
+          <a href="index.html#home">Home</a>
+          <a href="about.html" aria-current="page">About</a>
+        </nav>
+        <span class="wordmark" aria-label="Ana Júlia"><span>Ana Júlia</span><img src="midia/logo%20ana%20julia.svg" alt="" onload="this.previousElementSibling.hidden = true" onerror="this.hidden = true"></span>
+        <div class="social-links" aria-label="Redes sociais e contato">
+          <svg class="social-icon" viewBox="0 0 16 16" role="img" aria-label="Instagram" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="2.1" y="2.1" width="11.8" height="11.8" rx="3.2"></rect>
+            <circle cx="8" cy="8" r="2.8"></circle>
+            <circle cx="11.7" cy="4.4" r="0.7" fill="currentColor" stroke="none"></circle>
+          </svg>
+          <svg class="social-icon" viewBox="0 0 16 16" role="img" aria-label="E-mail" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1.5" y="3" width="13" height="10" rx="1"></rect>
+            <path d="m2.1 4 5.9 4.8L13.9 4"></path>
+          </svg>
+          <svg class="social-icon" viewBox="0 0 16 16" role="img" aria-label="WhatsApp" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13.4 7.7a5.4 5.4 0 0 1-7.9 4.8L2.3 13l.6-3.1a5.4 5.4 0 1 1 10.5-2.2Z"></path>
+            <path d="M5.5 5.2c-.3.2-.5.6-.5 1 0 1.8 2.5 4.5 4.5 4.7.5 0 1-.2 1.2-.6l.2-.7-1.4-.7-.7.6c-.7-.3-1.3-.9-1.7-1.6l.5-.7-.7-1.4-.7-.6-.7 0Z"></path>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="profile-intro" aria-label="Apresentação profissional">
+        <div>
+          <img class="portrait-placeholder" src="midia/imagem%20anaju.png" alt="Ana Júlia">
+          <div class="portrait-divider" aria-hidden="true"></div>
+        </div>
+        <article class="intro-card">
+          <span class="card-corner top-left" aria-hidden="true"></span>
+          <span class="card-corner top-right" aria-hidden="true"></span>
+          <span class="card-corner bottom-left" aria-hidden="true"></span>
+          <span class="card-corner bottom-right" aria-hidden="true"></span>
+          <h1>Ana Júlia</h1>
+          <p>Designer Gráfica especialista em Design Editorial. Brasília, DF.</p>
+          <p>Possuo experiência com: InDesign, Adobe Illustrator, Adobe Photoshop.</p>
+        </article>
+      </section>
+
+      <section class="biography" aria-labelledby="biography-title">
+        <span class="moon" aria-hidden="true"><span>✦</span></span>
+        <h2 id="biography-title">Biografia</h2>
+        <div class="biography-rule" aria-hidden="true"></div>
+        <p>Meu nome é Ana Júlia Oliveira Melo, tenho 17 anos e estudo no Senai há três anos. Sou estudante de Design Gráfico do Ensino Médio no SENAI, apaixonada por criatividade, comunicação visual e criação de projetos. Busco desenvolver minhas habilidades em identidade visual, edição de imagens e design digital, transformando ideias em soluções visuais criativas e funcionais.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-label="Instagram" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.8" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+          <span>@aoliveira.a</span>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-label="E-mail" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1.5" y="4" width="21" height="16" rx="1"></rect>
+            <path d="m2.5 5 9.5 8 9.5-8"></path>
+          </svg>
+          <span>ana.j.melo@aluno.senai.br</span>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" role="img" aria-label="Telefone" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.8-5.3A8.5 8.5 0 1 1 21 11.5Z"></path>
+            <path d="M8.5 8.2c-.4.2-.7.7-.7 1.2 0 2.1 3 5.3 5.3 5.5.6 0 1.1-.3 1.4-.8l.2-.8-1.7-.8-.8.7c-.8-.4-1.5-1.1-2-1.9l.6-.8-.8-1.7-.8-.7-.7.1Z"></path>
+          </svg>
+          <span>61 99568-4019</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
